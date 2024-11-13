@@ -21,3 +21,5 @@ if operation == "plus":
 elif operation == "minus":
     output = sub(num1, num2)
     print(output)
+else:
+    print("Please enter a valid operator")
