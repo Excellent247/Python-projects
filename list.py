@@ -7,12 +7,32 @@
 # for name in names:
 #     print(name[2])
 
+# # for loop
 # i = 0
 
 # for i in range(10):
 #     i+=2
 #     print(i)
 
-with open("names.txt", "r") as names:
-    for name in names:
-        print(name)
+# ## read files
+
+# with open("names.txt", "r") as names:
+#     for name in names:
+#         print(name)
+
+import os
+
+folders = input("Please provide the names of directories with spaces in between: ").split()
+
+for folder in folders:
+    try:
+        files = os.listdir(folder)
+    except FileNotFoundError:
+        print("The directory "+ folder + " does not exist")
+        continue
+    except PermissionError:
+        print("You do not have access to the folder " + folder)
+        continue
+    print("************** Listing the files in directory - " + folder)
+    for file in files:
+        print(file)
